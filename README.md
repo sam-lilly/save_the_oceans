@@ -1,3 +1,65 @@
+## Save The Oceans Game 
+
+## Background and Overview 
+
+Save The Oceans is an underwater themed game where a diver is swimming through the ocean and trying to catch as many pieces of trash as it can in the net without catching any of the fish or sea animals.
+
+
+## Functionality and MVPs
+
+In STO players will
+ - automatically swim through the ocean
+ - move their character left and right with the arrow keys
+ - collect trash from the ocean in their net
+ - lose if they catch any fish or animals in their net
+ - random ocean facts when starting the game / losing the game
+ - player can never 'win'
+ - when player collects ~100 pieces of trash / gives them an ocean fact and then reloops to beginning
+ - "great job helping, but our oceans need so much work, you haven't won yet!"
+ *BONUS
+ - timer will run out if they run out of air
+ - have to collect air bubbles to be able to fill up their oxygen tank
+ - adding background underwater ocean sounds background music
+
+
+## Wireframes 
+
+-* in repo
+
+
+## Architecture and Technology 
+ 
+ - javascript game
+ - animating and drawing on cavas
+ - HTML & scss
+
+
+## Implementation Timeline
+
+ - create base for game (1 day)
+ - create canvas ocean and animals (2 days)
+ - build out game logic (1 day)
+ - styling (1 day)
+
+
+## Bonus Features
+
+ - background music for game
+ - ozygen tank running low, need to collect air bubbles to stay alive
+
+
+
+
+
+
+
+
+
+
+
+
+## Below are Skeleton Notes
+
 ## Node Version Manager (NVM)
 - To find out which version of node your machine is currently running, use the command `node -v` in your terminal
 - We want to build our projects in the latest stable build that is supported by all of our dependencies.
