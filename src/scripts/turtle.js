@@ -14,9 +14,10 @@ class Turtle {
     constructor() {
         this.width = 60;
         this.height = 60;
-        this.x = 650;
+        // this.x = 650;
+        this.x = (Math.random() * 300) + 650;
         this.y = Math.floor(Math.random() * 300);
-        this.speed = 2.25;
+        this.speed = Math.random() + 2.25;
         this.top = false;
         this.bottom = true;
         this.up = Math.floor(Math.random() * 10);
@@ -28,7 +29,7 @@ class Turtle {
 
     swim() {
         this.x -= this.speed;
-        if (this.x <= -50) {
+        if (this.x <= -950) {
         this.x = 650;
         this.y = Math.random() * 300;
         this.up = Math.floor(Math.random() * 10);

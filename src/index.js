@@ -4,6 +4,10 @@ import Octopus from './scripts/octopus';
 import Jellyfish from './scripts/jellyfish';
 import Seahorse from './scripts/seahorse';
 import Turtle from './scripts/turtle';
+import Bottle from './scripts/glass_bottle';
+import Bag from './scripts/plastic_bag';
+import Cup from './scripts/solo_cup';
+import Straw from './scripts/straw';
 
 import "./styles/index.scss";
 
@@ -13,7 +17,6 @@ const ctx = canvas.getContext('2d');
 canvas.width = 650;
 canvas.height = 352;
 
-const keys = [];
 
 const scuba = {
     x: 20,
@@ -23,38 +26,8 @@ const scuba = {
     speed: 3
 };
 
-const bottle = {
-  x: 650,
-  y: Math.random() * 200,
-  width: 60,
-  height: 60,
-  speed: 1.5
-};
 
-const bag = {
-  x: 650,
-  y: Math.random() * 200,
-  width: 60,
-  height: 60,
-  speed: 1.0
-};
-
-const cup = {
-  x: 650,
-  y: Math.random() * 200,
-  width: 60,
-  height: 60,
-  speed: 1.25
-};
-
-const straw = {
-  x: 650,
-  y: Math.random() * 200,
-  width: 60,
-  height: 60,
-  speed: 1.25
-};
-
+const keys = [];
 
 const rainbowFish = [];
 rainbowFish.push(new Rainbow());
@@ -71,6 +44,7 @@ octopis.push(new Octopus());
 
 const jellyfishes = [];
 jellyfishes.push(new Jellyfish());
+jellyfishes.push(new Jellyfish());
 
 const seahorses = [];
 seahorses.push(new Seahorse());
@@ -78,21 +52,36 @@ seahorses.push(new Seahorse());
 const turtles = [];
 turtles.push(new Turtle());
 
+const bottles = [];
+bottles.push(new Bottle());
+bottles.push(new Bottle());
+bottles.push(new Bottle());
+bottles.push(new Bottle());
+bottles.push(new Bottle());
+
+const bags = [];
+bags.push(new Bag());
+bags.push(new Bag());
+bags.push(new Bag());
+bags.push(new Bag());
+bags.push(new Bag());
+
+const cups = [];
+cups.push(new Cup());
+cups.push(new Cup());
+cups.push(new Cup());
+cups.push(new Cup());
+cups.push(new Cup());
+
+const straws = [];
+straws.push(new Straw());
+straws.push(new Straw());
+straws.push(new Straw());
+straws.push(new Straw());
+straws.push(new Straw());
+
 const scubaSprite = new Image();
 scubaSprite.src = "../src/images/scuba.png";
-
-const bottleSprite = new Image();
-bottleSprite.src = "../src/images/glass_bottle.png";
-
-const bagSprite = new Image();
-bagSprite.src = "../src/images/plastic_bag.png";
-
-const cupSprite = new Image();
-cupSprite.src = "../src/images/solo_cup.png";
-
-const strawSprite = new Image();
-strawSprite.src = "../src/images/straw.png";
-
 
 const background = new Image();
 background.src = "../src/images/backdrop.png";
@@ -108,11 +97,6 @@ function animate() {
     position = 0;
   }
   ctx.drawImage(background, position, 0, 3650, canvas.height);
-
-  drawSprite(bottleSprite, 0, 0, bottle.width, bottle.height, bottle.x, bottle.y, bottle.width, bottle.height);
-  drawSprite(bagSprite, 0, 0, bag.width, bag.height, bag.x, bag.y, bag.width, bag.height);
-  drawSprite(cupSprite, 0, 0, cup.width, cup.height, cup.x, cup.y, cup.width, cup.height);
-  drawSprite(strawSprite, 0, 0, straw.width, straw.height, straw.x, straw.y, straw.width, straw.height);
 
   rainbowFish[0].draw();
   rainbowFish[0].swim();
@@ -133,6 +117,8 @@ function animate() {
 
   jellyfishes[0].draw();
   jellyfishes[0].swim();
+  jellyfishes[1].draw();
+  jellyfishes[1].swim();
 
   seahorses[0].draw();
   seahorses[0].swim();
@@ -140,14 +126,54 @@ function animate() {
   turtles[0].draw();
   turtles[0].swim();
 
+  bottles[0].draw();
+  bottles[0].float();
+  bottles[1].draw();
+  bottles[1].float();
+  bottles[2].draw();
+  bottles[2].float();
+  bottles[3].draw();
+  bottles[3].float();
+  bottles[4].draw();
+  bottles[4].float();
+
+  bags[0].draw();
+  bags[0].float();
+  bags[1].draw();
+  bags[1].float();
+  bags[2].draw();
+  bags[2].float();
+  bags[3].draw();
+  bags[3].float();
+  bags[4].draw();
+  bags[4].float();
+
+  cups[0].draw();
+  cups[0].float();
+  cups[1].draw();
+  cups[1].float();
+  cups[2].draw();
+  cups[2].float();
+  cups[3].draw();
+  cups[3].float();
+  cups[4].draw();
+  cups[4].float();
+
+  straws[0].draw();
+  straws[0].float();
+  straws[1].draw();
+  straws[1].float();
+  straws[2].draw();
+  straws[2].float();
+  straws[3].draw();
+  straws[3].float();
+  straws[4].draw();
+  straws[4].float();
+
+
   drawSprite(scubaSprite, 0, 0, scuba.width, scuba.height, scuba.x, scuba.y, scuba.width, scuba.height);
 
   moveScuba();
-
-  bottleFloat();
-  bagFloat();
-  cupFloat();
-  strawFloat();
 
   requestAnimationFrame(animate);
   position-=2;
@@ -176,58 +202,31 @@ function moveScuba() {
   if (keys['ArrowRight'] && scuba.x <= 373) {
     scuba.x += scuba.speed;
   }
-}
+  // console.log(scuba.x);
+  // console.log(scuba.y);
+  let fishCount = 0;
+  rainbowFish.forEach(fish => {
+      // if ((fish.x - (scuba.x + 242)) < -50) {
+        // works for x coordinate
 
-function bottleFloat() {
-  bottle.x -= bottle.speed;
-  if (bottle.y < 100 && bottle.y > 10) {
-    bottle.y -= 0.15;
-  }
-  if (bottle.y >= 100 && bottle.y < 300) {
-    bottle.y += 0.15;
-  }
-  if (bottle.x <= -50) {
-    bottle.x = 650;
-  }
-}
+      // if (((fish.x - (scuba.x + 242)) < -50) && ((fish.y - (scuba.y + 96)) < 1 )) {
+      // if ((fish.x - (scuba.x + 242)) < -50) {
+        // ^^the X THAT WORKS!!!
 
-function bagFloat() {
-  bag.x -= bag.speed;
-  if (bag.y < 100 && bag.y > 10) {
-    bag.y -= 0.15;
-  }
-  if (bag.y >= 100 && bag.y < 300) {
-    bag.y += 0.15;
-  }
-  if (bag.x <= -50) {
-    bag.x = 650;
-  }
-}
+          // (((fish.x - (scuba.x + 242)) > -50) && ((fish.x - (scuba.x + 242)) < -45))
 
-function cupFloat() {
-  cup.x -= cup.speed;
-  if (cup.y < 100 && cup.y > 10) {
-    cup.y -= 0.15;
-  }
-  if (cup.y >= 100 && cup.y < 300) {
-    cup.y += 0.15;
-  }
-  if (cup.x <= -50) {
-    cup.x = 650;
-  }
-}
-
-function strawFloat() {
-  straw.x -= straw.speed;
-  if (straw.y < 100 && straw.y > 10) {
-    straw.y -= 0.15;
-  }
-  if (straw.y >= 100 && straw.y < 300) {
-    straw.y += 0.15;
-  }
-  if (straw.x <= -50) {
-    straw.x = 650;
-  }
+        if ((((fish.y - scuba.y) < 43) && ((fish.y - scuba.y) > 35)) && (((fish.y - scuba.y) < 43) && ((fish.y - scuba.y) > 35))) {
+        // if (((fish.y - scuba.y) < 43) && ((fish.y - scuba.y) > 35)) {
+          console.log(fish.y);
+          console.log(scuba.y);
+          fish.x = (Math.random() * 400) + 650;
+          fish.y = Math.floor(Math.random() * 300);
+          fish.speed = Math.random() + 2.5;
+          // fishCount += 1;
+          // console.log(fishCount);
+        // }
+      }
+  });
 }
 
 

@@ -14,9 +14,10 @@ class Seahorse {
     constructor() {
         this.width = 60;
         this.height = 60;
-        this.x = 650;
+        // this.x = 650;
+        this.x = (Math.random() * 100) + 650;
         this.y = Math.floor(Math.random() * 300);
-        this.speed = 2.75;
+        this.speed = Math.random() + 2.75;
         this.top = false;
         this.bottom = true;
         this.up = Math.floor(Math.random() * 10);
@@ -28,7 +29,7 @@ class Seahorse {
 
     swim() {
         this.x -= this.speed;
-        if (this.x <= -50) {
+        if (this.x <= -850) {
         this.x = 650;
         this.y = Math.random() * 300;
         this.up = Math.floor(Math.random() * 10);
