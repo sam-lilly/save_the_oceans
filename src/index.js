@@ -273,10 +273,19 @@ window.addEventListener("keyup", function(e) {
 });
 
 let fishCount = 0;
+
 let bottleCount = 0;
+let bottlesLeft = 5250000000;
+
 let bagCount = 0;
+let bagsLeft = 1000000000000;
+
 let cupCount = 0;
+let cupsLeft = 3700000000;
+
 let strawCount = 0;
+let strawsLeft = 8300000000;
+
 
 
 function moveScuba() {
@@ -316,6 +325,11 @@ function moveScuba() {
       bottle.speed = Math.random() + 1.5;
       if (gameStart) {
         bottleCount += 1;
+        bottlesLeft -= 1;
+        let bottleDiv = document.getElementById("bottlescollected");
+        let bottleLeft = document.getElementById("bottlesleft");
+        bottleDiv.innerHTML = bottleCount;
+        bottleLeft.innerHTML = bottlesLeft;
         console.log(bottleCount);
       }
     }
@@ -327,6 +341,11 @@ function moveScuba() {
       bag.speed = Math.random() + 1.25;
       if (gameStart) {
         bagCount += 1;
+        bagsLeft -= 1;
+        let bagDiv = document.getElementById("bagscollected");
+        let bagLeft = document.getElementById("bagsleft");
+        bagDiv.innerHTML = bagCount;
+        bagLeft.innerHTML = bagsLeft;
         console.log(bagCount);
       }
     }
@@ -338,6 +357,11 @@ function moveScuba() {
       cup.speed = Math.random() + 1.25;
       if (gameStart) {
         cupCount += 1;
+        cupsLeft -= 1;
+        let cupDiv = document.getElementById("cupscollected");
+        let cupLeft = document.getElementById("cupsleft");
+        cupDiv.innerHTML = cupCount;
+        cupLeft.innerHTML = cupsLeft;
         console.log(cupCount);
       }
     }
@@ -349,6 +373,11 @@ function moveScuba() {
       straw.speed = Math.random() + 1.25;
       if (gameStart) {
         strawCount += 1;
+        strawsLeft -= 1;
+        let strawDiv = document.getElementById("strawscollected");
+        let strawLeft = document.getElementById("strawsleft");
+        strawDiv.innerHTML = strawCount;
+        strawLeft.innerHTML = strawsLeft;
         console.log(strawCount);
       }
     }
@@ -371,6 +400,22 @@ function startGame() {
   strawCount = 0;
   scuba.x = 20;
   scuba.y = 40;
+  let strawDiv = document.getElementById("strawscollected");
+  let strawLeft = document.getElementById("strawsleft");
+  strawDiv.innerHTML = 0;
+  strawLeft.innerHTML = 8300000000;
+  let cupDiv = document.getElementById("cupscollected");
+  let cupLeft = document.getElementById("cupsleft");
+  cupDiv.innerHTML = 0;
+  cupLeft.innerHTML = 3700000000;
+  let bottleDiv = document.getElementById("bottlescollected");
+  let bottleLeft = document.getElementById("bottlesleft");
+  bottleDiv.innerHTML = 0;
+  bottleLeft.innerHTML = 5250000000;
+  let bagDiv = document.getElementById("bagscollected");
+  let bagLeft = document.getElementById("bagsleft");
+  bagDiv.innerHTML = 0;
+  bagLeft.innerHTML = 1000000000000;
 }
 
 function sleep(milliseconds) {
