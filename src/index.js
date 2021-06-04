@@ -260,12 +260,9 @@ window.addEventListener("keydown", function(e) {
     console.log(gameStart);
   }
 })
-// this is to start the game on main screen
-// need to figure out how to not let scuba move around while
 
 window.addEventListener("keydown", function(e) {
   keys[e.key] = true;
-  // console.log(e.key);
 });
 
 window.addEventListener("keyup", function(e) {
@@ -310,9 +307,6 @@ function moveScuba() {
         fish.speed = Math.random() + 2.5;
         if (gameStart) {
           fishCount += 1;
-          console.log(fishCount);
-          // let gameOverDisp = document.getElementById("over");
-          // gameOverDisp.style.display = "block";
           endDisp();
           endGame();
         }
@@ -330,7 +324,6 @@ function moveScuba() {
         let bottleLeft = document.getElementById("bottlesleft");
         bottleDiv.innerHTML = bottleCount;
         bottleLeft.innerHTML = bottlesLeft;
-        console.log(bottleCount);
       }
     }
   });
@@ -346,7 +339,6 @@ function moveScuba() {
         let bagLeft = document.getElementById("bagsleft");
         bagDiv.innerHTML = bagCount;
         bagLeft.innerHTML = bagsLeft;
-        console.log(bagCount);
       }
     }
   });
@@ -362,7 +354,6 @@ function moveScuba() {
         let cupLeft = document.getElementById("cupsleft");
         cupDiv.innerHTML = cupCount;
         cupLeft.innerHTML = cupsLeft;
-        console.log(cupCount);
       }
     }
   });
@@ -378,7 +369,6 @@ function moveScuba() {
         let strawLeft = document.getElementById("strawsleft");
         strawDiv.innerHTML = strawCount;
         strawLeft.innerHTML = strawsLeft;
-        console.log(strawCount);
       }
     }
   });
@@ -424,26 +414,8 @@ function sleep(milliseconds) {
   do {
     currentDate = Date.now();
   } while (currentDate - date < milliseconds)
-  // gameStart = false;
-  // gameOver = true;
-  // gameInProgress = false;
-  // gameStartDisp.style.display = "block";
-  // let gameOverDisp = document.getElementById("over");
-  // gameOverDisp.style.display = "block";
 }
 
-// function sleep(milliseconds) {
-//   return new Promise(
-//     resolve => setTimeout(resolve, milliseconds)
-//   );
-// }
-
-// async function delayEndingGame() {
-//   await sleep(300);
-//   gameStart = false;
-//   gameEnd = true;
-//   gameInProgress = false;
-// }
 
 function currentGame() {
   let gameStartDisp = document.getElementById("start");
@@ -452,7 +424,7 @@ function currentGame() {
   let gameOverDisp = document.getElementById("over");
   gameStartDisp.style.display = "none";
   gameCanvasDisp.style.display = "block";
-  gameProg.style.display = "block";
+  gameProg.style.display = "flex";
   gameOverDisp.style.display = "none";
   console.log("current game func")
 }

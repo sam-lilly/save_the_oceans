@@ -16,12 +16,13 @@
     <!-- <canvas id="canvas" style="display:none"></canvas> -->
     
     <div id="start" style="display:block">
-      <p>this means the game hasn't started</p>
-      <p>Press the space bar to start!</p>
+      <!-- <p>this means the game hasn't started</p> -->
+      <p class="save">Save The Oceans!</p>
+      <p>Press any key to start game!</p>
     </div>
 
-    <div id="progress" style="display:none">
-      <p>this means game in progress</p>
+    <div class="game-in-progress" id="progress" style="display:none">
+      <!-- <p>this means game in progress</p> -->
 
       
       <div class="straws">
@@ -43,17 +44,24 @@
       </div>
       
       <div class="bags">
-        <p>Plastic Bags Collected:</p><p id="bagscollected">0</p>
-        <p>Plastic Bags Left:</p><p id="bagsleft">1000000000000</p>
-        <p>Plastic Bags in Ocean:</p><p id="bagsocean">1,000,000,000,000+</p>
+        <div>
+          <p>Plastic Bags Collected:</p><p id="bagscollected">0</p>
+        </div>
+        <div>
+          <p>Plastic Bags Left:</p><p id="bagsleft">1000000000000</p>
+        </div>
+        <div>
+          <p>Plastic Bags in Ocean:</p><p id="bagsocean">1,000,000,000,000+</p>
+        </div>
       </div>
 
     </div>
 
     
-    <div id="over" style="display:none">
-      <p>this means the game is OVER</p>
+    <div id="over" class="game-over" style="display:none">
+      <p class="game-over-header">GAME OVER</p>
       <p>Fish are friends not food!</p>
+      <p>Press any key to start new game!</p>
     </div>
     
     

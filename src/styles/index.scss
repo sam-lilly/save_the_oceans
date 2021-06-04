@@ -4,7 +4,34 @@
   border: 1px solid black;
   background: darkblue;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#start {
+  text-align: center;
+}
+.save {
+  font-size: 50px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.game-in-progress {
+  display: flex;
+  justify-content: space-between;
+  color: red;
+  font-size: 16px;
+}
+
+.game-over {
+  .game-over-header {
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
 }
