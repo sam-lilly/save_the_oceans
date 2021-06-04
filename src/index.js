@@ -136,7 +136,8 @@ const scubaSprite = new Image();
 scubaSprite.src = "../src/images/scuba.png";
 
 const background = new Image();
-background.src = "../src/images/backdrop.png";
+// background.src = "../src/images/backdrop.png";
+background.src = "../images/backdrop.png";
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
   ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
