@@ -193,7 +193,7 @@ function moveScuba() {
   if (keys['ArrowUp'] && scuba.y > -28) {
     scuba.y -= scuba.speed;
   }
-  if (keys['ArrowDown'] && scuba.y < 245) {
+  if (keys['ArrowDown'] && scuba.y < 255) {
     scuba.y += scuba.speed;
   }
   if (keys['ArrowLeft'] && scuba.x >= -167) {
@@ -215,8 +215,13 @@ function moveScuba() {
 
           // (((fish.x - (scuba.x + 242)) > -50) && ((fish.x - (scuba.x + 242)) < -45))
 
-        if ((((fish.y - scuba.y) < 43) && ((fish.y - scuba.y) > 35)) && (((fish.y - scuba.y) < 43) && ((fish.y - scuba.y) > 35))) {
+        // if ((((fish.x - (scuba.x + 242)) > -60) && ((fish.x - (scuba.x + 242)) < -40)) && (((fish.y - scuba.y) < 43) && ((fish.y - scuba.y) > 35))) {
+        // works but off by a little bit on x
+
+        if ((((fish.x - (scuba.x + 242)) > -60) && ((fish.x - (scuba.x + 242)) < -10)) && (((fish.y - scuba.y) < 48) && ((fish.y - scuba.y) > 33))) {
         // if (((fish.y - scuba.y) < 43) && ((fish.y - scuba.y) > 35)) {
+          console.log(fish.x);
+          console.log(scuba.x); 
           console.log(fish.y);
           console.log(scuba.y);
           fish.x = (Math.random() * 400) + 650;
