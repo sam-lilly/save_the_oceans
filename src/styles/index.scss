@@ -1,7 +1,11 @@
+.body {
+  background: darkblue;
+}
+
 #canvas {
   width: 650px;
   height: 352px;
-  border: 1px solid black;
+  border: 5px solid black;
   background: darkblue;
   position: absolute;
   top: 60%;
@@ -11,17 +15,19 @@
 
 #start {
   text-align: center;
+  color: lightblue;
 }
 .save {
   font-size: 50px;
   font-weight: bolder;
   text-align: center;
+  color: lightblue;
 }
 
 .game-in-progress {
   display: flex;
   justify-content: space-between;
-  color: red;
+  color: lightblue;
   font-size: 16px;
 }
 
@@ -33,5 +39,6 @@
   }
   p {
     text-align: center;
+    color: lightblue;
   }
 }
