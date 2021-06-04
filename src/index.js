@@ -142,6 +142,8 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
   ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 }
 
+// let gameOver = false;
+
 let position = 0;
 function animate() {
   // ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -230,15 +232,39 @@ function animate() {
   })
 
   moveScuba();
-
-  requestAnimationFrame(animate);
+  // if (!gameOver) {
+    requestAnimationFrame(animate);
+  // }
   position-=2;
 }
 
 animate();
 
+let gameOver = true;
+let gameStart = false;
+let gameInProgress = false;
+console.log(gameOver);
+console.log(gameStart);
+
+window.addEventListener("keydown", function(e) {
+  console.log("hi")
+  if (e.key && gameOver) {
+    console.log("game is starting")
+    gameStart = true;
+    gameOver = false;
+    gameInProgress = true;
+    startGame();
+    currentGame();
+    console.log(gameOver);
+    console.log(gameStart);
+  }
+})
+// this is to start the game on main screen
+// need to figure out how to not let scuba move around while
+
 window.addEventListener("keydown", function(e) {
   keys[e.key] = true;
+  // console.log(e.key);
 });
 
 window.addEventListener("keyup", function(e) {
@@ -253,26 +279,33 @@ let strawCount = 0;
 
 
 function moveScuba() {
-  if (keys['ArrowUp'] && scuba.y > -60) {
-    scuba.y -= scuba.speed;
-  }
-  if (keys['ArrowDown'] && scuba.y < 255) {
-    scuba.y += scuba.speed;
-  }
-  if (keys['ArrowLeft'] && scuba.x >= -210) {
-    scuba.x -= scuba.speed + 2;
-  }
-  if (keys['ArrowRight'] && scuba.x <= 373) {
-    scuba.x += scuba.speed;
+  if (gameInProgress) {
+    if (keys['ArrowUp'] && scuba.y > -60) {
+      scuba.y -= scuba.speed;
+    }
+    if (keys['ArrowDown'] && scuba.y < 255) {
+      scuba.y += scuba.speed;
+    }
+    if (keys['ArrowLeft'] && scuba.x >= -210) {
+      scuba.x -= scuba.speed + 2;
+    }
+    if (keys['ArrowRight'] && scuba.x <= 373) {
+      scuba.x += scuba.speed;
+    }
   }
   allFish.forEach(fish => {
       if ((((fish.x - (scuba.x + 242)) > -60) && ((fish.x - (scuba.x + 242)) < -10)) && (((fish.y - scuba.y) < 48) && ((fish.y - scuba.y) > 33))) {
         fish.x = (Math.random() * 400) + 650;
         fish.y = Math.floor(Math.random() * 300);
         fish.speed = Math.random() + 2.5;
-        fishCount += 1;
-        console.log(fishCount);
-        // gameover();
+        if (gameStart) {
+          fishCount += 1;
+          console.log(fishCount);
+          // let gameOverDisp = document.getElementById("over");
+          // gameOverDisp.style.display = "block";
+          endDisp();
+          endGame();
+        }
     }
   });
   bottles.forEach(bottle => {
@@ -280,8 +313,10 @@ function moveScuba() {
       bottle.x = (Math.random() * 400) + 650;
       bottle.y = Math.floor(Math.random() * 300);
       bottle.speed = Math.random() + 1.5;
-      bottleCount += 1;
-      console.log(bottleCount);
+      if (gameStart) {
+        bottleCount += 1;
+        console.log(bottleCount);
+      }
     }
   });
   bags.forEach(bag => {
@@ -289,8 +324,10 @@ function moveScuba() {
       bag.x = (Math.random() * 400) + 650;
       bag.y = Math.floor(Math.random() * 300);
       bag.speed = Math.random() + 1.25;
-      bagCount += 1;
-      console.log(bagCount);
+      if (gameStart) {
+        bagCount += 1;
+        console.log(bagCount);
+      }
     }
   });
   cups.forEach(cup => {
@@ -298,8 +335,10 @@ function moveScuba() {
       cup.x = (Math.random() * 400) + 650;
       cup.y = Math.floor(Math.random() * 300);
       cup.speed = Math.random() + 1.25;
-      cupCount += 1;
-      console.log(cupCount);
+      if (gameStart) {
+        cupCount += 1;
+        console.log(cupCount);
+      }
     }
   });
   straws.forEach(straw => {
@@ -307,16 +346,112 @@ function moveScuba() {
       straw.x = (Math.random() * 400) + 650;
       straw.y = Math.floor(Math.random() * 300);
       straw.speed = Math.random() + 1.25;
-      strawCount += 1;
-      console.log(strawCount);
+      if (gameStart) {
+        strawCount += 1;
+        console.log(strawCount);
+      }
     }
   });
-
 }
 
-// function gameover() {
+function startGame() {
+  let gameStartDisp = document.getElementById("start");
+  let gameCanvasDisp = document.getElementById("canvas");
+  let gameProg = document.getElementById("progress");
+  let gameOverDisp = document.getElementById("over");
+  gameStartDisp.style.display = "none";
+  gameCanvasDisp.style.display = "block";
+  gameProg.style.display = "none";
+  gameOverDisp.style.display = "none";
+  fishCount = 0;
+  bottleCount = 0;
+  bagCount = 0;
+  cupCount = 0;
+  strawCount = 0;
+  scuba.x = 20;
+  scuba.y = 40;
+}
 
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds)
+  // gameStart = false;
+  // gameOver = true;
+  // gameInProgress = false;
+  // gameStartDisp.style.display = "block";
+  // let gameOverDisp = document.getElementById("over");
+  // gameOverDisp.style.display = "block";
+}
+
+// function sleep(milliseconds) {
+//   return new Promise(
+//     resolve => setTimeout(resolve, milliseconds)
+//   );
 // }
+
+// async function delayEndingGame() {
+//   await sleep(300);
+//   gameStart = false;
+//   gameEnd = true;
+//   gameInProgress = false;
+// }
+
+function currentGame() {
+  let gameStartDisp = document.getElementById("start");
+  let gameCanvasDisp = document.getElementById("canvas");
+  let gameProg = document.getElementById("progress");
+  let gameOverDisp = document.getElementById("over");
+  gameStartDisp.style.display = "none";
+  gameCanvasDisp.style.display = "block";
+  gameProg.style.display = "block";
+  gameOverDisp.style.display = "none";
+  console.log("current game func")
+}
+
+function endDisp() {
+  let gameStartDisp = document.getElementById("start");
+  let gameCanvasDisp = document.getElementById("canvas");
+  let gameProg = document.getElementById("progress");
+  let gameOverDisp = document.getElementById("over");
+  gameStartDisp.style.display = "none";
+  gameCanvasDisp.style.display = "block";
+  gameProg.style.display = "none";
+  gameOverDisp.style.display = "block";
+  console.log("this is end disp func");
+  // sleep(3000);
+}
+
+function endGame() {
+  // let gameStartDisp = document.getElementById("start");
+  // let gameCanvasDisp = document.getElementById("canvas");
+  // let gameProg = document.getElementById("progress");
+  let gameOverDisp = document.getElementById("over");
+  // gameStartDisp.style.display = "none";
+  // gameCanvasDisp.style.display = "block";
+  // gameProg.style.display = "none";
+  gameOverDisp.style.display = "block";
+  console.log("this is end game before sleep");
+
+  sleep(2000);
+  scuba.x = 20;
+  scuba.y = 40;
+  console.log("this is end game after sleep");
+  // setTimeout(() => {
+  //   gameStart = false;
+  //   gameOver = true;
+    gameInProgress = false;
+  // }, 3000);
+    setTimeout(() => {
+    gameStart = false;
+    gameOver = true;
+  // gameInProgress = false;
+  }, 3000);
+  // had at 100
+  console.log("this is end game after set timeout");
+}
 
 
 // can do something like if scuba.y or scuba.x (wherever the net is)

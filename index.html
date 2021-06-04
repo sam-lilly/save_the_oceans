@@ -5,12 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
-    <title>JS Project Skeleton</title>
+    <title>Save The Oceans</title>
   </head>
 
   <body>
+
     <canvas id="canvas"></canvas>
-    <!-- <img class="backdrop" src="./src/images/backdrop.png" id="backdrop" /> -->
+    <!-- ^works but trying to add game start/ game over -->
+    
+    <!-- <canvas id="canvas" style="display:none"></canvas> -->
+    
+    <div id="start" style="display:block">
+      <p>this means the game hasn't started</p>
+      <p>Press the space bar to start!</p>
+    </div>
+
+    <div id="progress" style="display:none">
+      <p>this means game in progress</p>
+      <!-- <div>
+        straw count = 
+      </div> -->
+    </div>
+
+    
+    <div id="over" style="display:none">
+      <p>this means the game is OVER</p>
+      <p>Fish are friends not food!</p>
+    </div>
+    
+    
     <script src="./dist/main.js"></script>
+    
   </body>
 </html>
