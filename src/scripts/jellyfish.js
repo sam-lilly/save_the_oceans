@@ -1,5 +1,5 @@
 const jellyfishSprite = new Image();
-jellyfishSprite.src = "../images/jellyfish.png";
+jellyfishSprite.src = "./images/jellyfish.png";
 
 const ctx = canvas.getContext('2d');
 canvas.width = 650;

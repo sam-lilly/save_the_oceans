@@ -1,5 +1,5 @@
 const seahorseSprite = new Image();
-seahorseSprite.src = "../images/seahorse.png";
+seahorseSprite.src = "./images/seahorse.png";
 
 const ctx = canvas.getContext('2d');
 canvas.width = 650;

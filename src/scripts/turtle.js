@@ -1,5 +1,5 @@
 const turtleSprite = new Image();
-turtleSprite.src = "../images/turtle.png";
+turtleSprite.src = "./images/turtle.png";
 
 const ctx = canvas.getContext('2d');
 canvas.width = 650;

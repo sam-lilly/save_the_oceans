@@ -1,5 +1,5 @@
 const octopusSprite = new Image();
-octopusSprite.src = "../images/octopus.png";
+octopusSprite.src = "./images/octopus.png";
 
 const ctx = canvas.getContext('2d');
 canvas.width = 650;
