@@ -1,5 +1,5 @@
 const cupSprite = new Image();
-cupSprite.src = "../src/images/solo_cup.png";
+cupSprite.src = "../images/solo_cup.png";
 
 const ctx = canvas.getContext('2d');
 canvas.width = 650;

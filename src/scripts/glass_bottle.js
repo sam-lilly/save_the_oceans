@@ -1,5 +1,5 @@
 const bottleSprite = new Image();
-bottleSprite.src = "../src/images/glass_bottle.png";
+bottleSprite.src = "../images/glass_bottle.png";
 
 const ctx = canvas.getContext('2d');
 canvas.width = 650;

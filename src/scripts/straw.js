@@ -1,5 +1,5 @@
 const strawSprite = new Image();
-strawSprite.src = "../src/images/straw.png";
+strawSprite.src = "../images/straw.png";
 
 const ctx = canvas.getContext('2d');
 canvas.width = 650;

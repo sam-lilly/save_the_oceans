@@ -1,5 +1,5 @@
 const bagSprite = new Image();
-bagSprite.src = "../src/images/plastic_bag.png";
+bagSprite.src = "../images/plastic_bag.png";
 
 const ctx = canvas.getContext('2d');
 canvas.width = 650;

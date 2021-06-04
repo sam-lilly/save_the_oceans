@@ -1,5 +1,5 @@
 const rainbowSprite = new Image();
-rainbowSprite.src = "../src/images/rainbow_fish.png";
+rainbowSprite.src = "../images/rainbow_fish.png";
 
 const ctx = canvas.getContext('2d');
 canvas.width = 650;

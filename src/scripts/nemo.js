@@ -1,5 +1,5 @@
 const nemoSprite = new Image();
-nemoSprite.src = "../src/images/nemo.png";
+nemoSprite.src = "../images/nemo.png";
 
 const ctx = canvas.getContext('2d');
 canvas.width = 650;

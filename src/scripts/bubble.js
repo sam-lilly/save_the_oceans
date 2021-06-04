@@ -1,5 +1,5 @@
 const bubbleSprite = new Image();
-bubbleSprite.src = "../src/images/air_bubble.png"
+bubbleSprite.src = "../images/air_bubble.png"
 
 const ctx = canvas.getContext('2d');
 canvas.width = 650;
