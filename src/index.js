@@ -133,11 +133,11 @@ bubbles.push(new Bubble());
 
 
 const scubaSprite = new Image();
-scubaSprite.src = "../src/images/scuba.png";
+scubaSprite.src = "./images/scuba.png";
 
 const background = new Image();
 // background.src = "../src/images/backdrop.png";
-background.src = "../images/backdrop.png";
+background.src = "./images/backdrop.png";
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
   ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
@@ -153,84 +153,84 @@ function animate() {
   }
   ctx.drawImage(background, position, 0, 3650, canvas.height);
 
-  rainbowFish[0].draw();
-  rainbowFish[0].swim();
-  rainbowFish[1].draw();
-  rainbowFish[1].swim();
-  rainbowFish[2].draw();
-  rainbowFish[2].swim();
+  // rainbowFish[0].draw();
+  // rainbowFish[0].swim();
+  // rainbowFish[1].draw();
+  // rainbowFish[1].swim();
+  // rainbowFish[2].draw();
+  // rainbowFish[2].swim();
 
-  nemos[0].draw();
-  nemos[0].swim();
-  nemos[1].draw();
-  nemos[1].swim();
-  nemos[2].draw();
-  nemos[2].swim();
+  // nemos[0].draw();
+  // nemos[0].swim();
+  // nemos[1].draw();
+  // nemos[1].swim();
+  // nemos[2].draw();
+  // nemos[2].swim();
 
-  octopis[0].draw();
-  octopis[0].swim();
+  // octopis[0].draw();
+  // octopis[0].swim();
 
-  jellyfishes[0].draw();
-  jellyfishes[0].swim();
-  jellyfishes[1].draw();
-  jellyfishes[1].swim();
+  // jellyfishes[0].draw();
+  // jellyfishes[0].swim();
+  // jellyfishes[1].draw();
+  // jellyfishes[1].swim();
 
-  seahorses[0].draw();
-  seahorses[0].swim();
+  // seahorses[0].draw();
+  // seahorses[0].swim();
 
-  turtles[0].draw();
-  turtles[0].swim();
+  // turtles[0].draw();
+  // turtles[0].swim();
 
-  bottles[0].draw();
-  bottles[0].float();
-  bottles[1].draw();
-  bottles[1].float();
-  bottles[2].draw();
-  bottles[2].float();
-  bottles[3].draw();
-  bottles[3].float();
-  bottles[4].draw();
-  bottles[4].float();
+  // bottles[0].draw();
+  // bottles[0].float();
+  // bottles[1].draw();
+  // bottles[1].float();
+  // bottles[2].draw();
+  // bottles[2].float();
+  // bottles[3].draw();
+  // bottles[3].float();
+  // bottles[4].draw();
+  // bottles[4].float();
 
-  bags[0].draw();
-  bags[0].float();
-  bags[1].draw();
-  bags[1].float();
-  bags[2].draw();
-  bags[2].float();
-  bags[3].draw();
-  bags[3].float();
-  bags[4].draw();
-  bags[4].float();
+  // bags[0].draw();
+  // bags[0].float();
+  // bags[1].draw();
+  // bags[1].float();
+  // bags[2].draw();
+  // bags[2].float();
+  // bags[3].draw();
+  // bags[3].float();
+  // bags[4].draw();
+  // bags[4].float();
 
-  cups[0].draw();
-  cups[0].float();
-  cups[1].draw();
-  cups[1].float();
-  cups[2].draw();
-  cups[2].float();
-  cups[3].draw();
-  cups[3].float();
-  cups[4].draw();
-  cups[4].float();
+  // cups[0].draw();
+  // cups[0].float();
+  // cups[1].draw();
+  // cups[1].float();
+  // cups[2].draw();
+  // cups[2].float();
+  // cups[3].draw();
+  // cups[3].float();
+  // cups[4].draw();
+  // cups[4].float();
 
-  straws[0].draw();
-  straws[0].float();
-  straws[1].draw();
-  straws[1].float();
-  straws[2].draw();
-  straws[2].float();
-  straws[3].draw();
-  straws[3].float();
-  straws[4].draw();
-  straws[4].float();
+  // straws[0].draw();
+  // straws[0].float();
+  // straws[1].draw();
+  // straws[1].float();
+  // straws[2].draw();
+  // straws[2].float();
+  // straws[3].draw();
+  // straws[3].float();
+  // straws[4].draw();
+  // straws[4].float();
 
   drawSprite(scubaSprite, 0, 0, scuba.width, scuba.height, scuba.x, scuba.y, scuba.width, scuba.height); 
 
-  bubbles.forEach(bubble => {
-    bubble.draw();
-    bubble.float();
-  })
+  // bubbles.forEach(bubble => {
+  //   bubble.draw();
+  //   bubble.float();
+  // })
 
   moveScuba();
   // if (!gameOver) {
