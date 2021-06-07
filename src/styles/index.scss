@@ -2,6 +2,23 @@
   background: darkblue;
 }
 
+img {
+  height: 100vh;
+  width: 100vw;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.image-filter {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  color: blue;
+  background: blue;
+  opacity: 0.5;
+}
+
 #canvas {
   width: 650px;
   height: 352px;

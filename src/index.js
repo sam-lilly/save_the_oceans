@@ -159,6 +159,10 @@ function animate() {
   rainbowFish[1].swim();
   rainbowFish[2].draw();
   rainbowFish[2].swim();
+  // rainbowFish.forEach(rFish => {
+  //   rFish.draw();
+  //   rFish.swim();
+  // })
 
   nemos[0].draw();
   nemos[0].swim();
@@ -166,6 +170,10 @@ function animate() {
   nemos[1].swim();
   nemos[2].draw();
   nemos[2].swim();
+  // nemos.forEach(nemo => {
+  //   nemo.draw();
+  //   nemo.swim();
+  // })
 
   octopis[0].draw();
   octopis[0].swim();
@@ -174,6 +182,10 @@ function animate() {
   jellyfishes[0].swim();
   jellyfishes[1].draw();
   jellyfishes[1].swim();
+  // jellyfishes.forEach(jellyfish => {
+  //   jellyfish.draw();
+  //   jellyfish.swim();
+  // })
 
   seahorses[0].draw();
   seahorses[0].swim();
@@ -191,39 +203,55 @@ function animate() {
   bottles[3].float();
   bottles[4].draw();
   bottles[4].float();
+  // bottles.forEach(bottle => {
+  //   bottle.draw();
+  //   bottle.float();
+  // })
 
-  bags[0].draw();
-  bags[0].float();
-  bags[1].draw();
-  bags[1].float();
-  bags[2].draw();
-  bags[2].float();
-  bags[3].draw();
-  bags[3].float();
-  bags[4].draw();
-  bags[4].float();
+  // bags[0].draw();
+  // bags[0].float();
+  // bags[1].draw();
+  // bags[1].float();
+  // bags[2].draw();
+  // bags[2].float();
+  // bags[3].draw();
+  // bags[3].float();
+  // bags[4].draw();
+  // bags[4].float();
+  bags.forEach(bag => {
+    bag.draw();
+    bag.float();
+  })
 
-  cups[0].draw();
-  cups[0].float();
-  cups[1].draw();
-  cups[1].float();
-  cups[2].draw();
-  cups[2].float();
-  cups[3].draw();
-  cups[3].float();
-  cups[4].draw();
-  cups[4].float();
+  // cups[0].draw();
+  // cups[0].float();
+  // cups[1].draw();
+  // cups[1].float();
+  // cups[2].draw();
+  // cups[2].float();
+  // cups[3].draw();
+  // cups[3].float();
+  // cups[4].draw();
+  // cups[4].float();
+  cups.forEach(cup => {
+    cup.draw();
+    cup.float();
+  })
 
-  straws[0].draw();
-  straws[0].float();
-  straws[1].draw();
-  straws[1].float();
-  straws[2].draw();
-  straws[2].float();
-  straws[3].draw();
-  straws[3].float();
-  straws[4].draw();
-  straws[4].float();
+  // straws[0].draw();
+  // straws[0].float();
+  // straws[1].draw();
+  // straws[1].float();
+  // straws[2].draw();
+  // straws[2].float();
+  // straws[3].draw();
+  // straws[3].float();
+  // straws[4].draw();
+  // straws[4].float();
+  straws.forEach(straws => {
+    straws.draw();
+    straws.float();
+  })
 
   drawSprite(scubaSprite, 0, 0, scuba.width, scuba.height, scuba.x, scuba.y, scuba.width, scuba.height); 
 
@@ -233,6 +261,7 @@ function animate() {
   })
 
   moveScuba();
+
   // if (!gameOver) {
     requestAnimationFrame(animate);
   // }
@@ -307,8 +336,11 @@ function moveScuba() {
         fish.speed = Math.random() + 2.5;
         if (gameStart) {
           fishCount += 1;
+          let youLose = document.getElementById("you-lose");
+          youLose.innerHTML = "LOSER";
           endDisp();
           endGame();
+            // .then(sleep(3000));
         }
     }
   });
@@ -390,6 +422,8 @@ function startGame() {
   strawCount = 0;
   scuba.x = 20;
   scuba.y = 40;
+  let youLose = document.getElementById("you-lose");
+  youLose.innerHTML = "in progress";
   let strawDiv = document.getElementById("strawscollected");
   let strawLeft = document.getElementById("strawsleft");
   strawDiv.innerHTML = 0;
@@ -453,7 +487,7 @@ function endGame() {
   gameOverDisp.style.display = "block";
   console.log("this is end game before sleep");
 
-  sleep(2000);
+  sleep(500);
   scuba.x = 20;
   scuba.y = 40;
   console.log("this is end game after sleep");
@@ -471,10 +505,45 @@ function endGame() {
   console.log("this is end game after set timeout");
 }
 
+// function endGame() {
+//   let gameOverDisp = document.getElementById("over");
+//   gameOverDisp.style.display = "block";
+//   console.log("this is end game before sleep");
 
-// can do something like if scuba.y or scuba.x (wherever the net is)
-// intersects with the other sprite / either get a point or lose
-// if intersect w trash count for that specific trash will go up
-// keep running count of how many pieces of trash in the ocean
-//  3000000000 straws
-// have count 30000000 straws, 2999999998 left, collected 2
+//   scuba.x = 20;
+//   scuba.y = 40;
+//   console.log("this is end game after sleep");
+//     gameInProgress = false;
+//     setTimeout(() => {
+//     gameStart = false;
+//     gameOver = true;
+//   }, 3000);
+//   console.log("this is end game after set timeout");
+// }
+
+// const endGame = new Promise((resolve, reject) => {
+//   let gameOverDisp = document.getElementById("over");
+//   gameOverDisp.style.display = "block";
+//   console.log("this is end game before sleep");
+
+//   scuba.x = 20;
+//   scuba.y = 40;
+//   console.log("this is end game after sleep");
+//     gameInProgress = false;
+//     setTimeout(() => {
+//     gameStart = false;
+//     gameOver = true;
+//   }, 3000);
+//   console.log("this is end game after set timeout");
+// })
+
+// const myPromise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve('foo');
+//   }, 300);
+// });
+
+// myPromise
+//   .then(handleResolvedA, handleRejectedA)
+//   .then(handleResolvedB, handleRejectedB)
+//   .then(handleResolvedC, handleRejectedC);
