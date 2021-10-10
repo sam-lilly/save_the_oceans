@@ -273,20 +273,20 @@ animate();
 let gameOver = true;
 let gameStart = false;
 let gameInProgress = false;
-console.log(gameOver);
-console.log(gameStart);
+// console.log(gameOver);
+// console.log(gameStart);
 
 window.addEventListener("keydown", function(e) {
-  console.log("hi")
+  // console.log("hi")
   if (e.key && gameOver) {
-    console.log("game is starting")
+    // console.log("game is starting")
     gameStart = true;
     gameOver = false;
     gameInProgress = true;
     startGame();
     currentGame();
-    console.log(gameOver);
-    console.log(gameStart);
+    // console.log(gameOver);
+    // console.log(gameStart);
   }
 })
 
@@ -337,7 +337,8 @@ function moveScuba() {
         if (gameStart) {
           fishCount += 1;
           let youLose = document.getElementById("you-lose");
-          youLose.innerHTML = "LOSER";
+          youLose.innerHTML = "";
+          // ^did used to say "loser"
           endDisp();
           endGame();
             // .then(sleep(3000));
@@ -407,11 +408,11 @@ function moveScuba() {
 }
 
 function startGame() {
-  let gameStartDisp = document.getElementById("start");
+  // let gameStartDisp = document.getElementById("start");
   let gameCanvasDisp = document.getElementById("canvas");
   let gameProg = document.getElementById("progress");
   let gameOverDisp = document.getElementById("over");
-  gameStartDisp.style.display = "none";
+  // gameStartDisp.style.display = "none";
   gameCanvasDisp.style.display = "block";
   gameProg.style.display = "none";
   gameOverDisp.style.display = "none";
@@ -423,7 +424,8 @@ function startGame() {
   scuba.x = 20;
   scuba.y = 40;
   let youLose = document.getElementById("you-lose");
-  youLose.innerHTML = "in progress";
+  youLose.innerHTML = "";
+  // ^used to .innterHTML = "in progress"
   let strawDiv = document.getElementById("strawscollected");
   let strawLeft = document.getElementById("strawsleft");
   strawDiv.innerHTML = 0;
@@ -452,27 +454,28 @@ function sleep(milliseconds) {
 
 
 function currentGame() {
-  let gameStartDisp = document.getElementById("start");
+  // let gameStartDisp = document.getElementById("start");
   let gameCanvasDisp = document.getElementById("canvas");
   let gameProg = document.getElementById("progress");
   let gameOverDisp = document.getElementById("over");
-  gameStartDisp.style.display = "none";
+  // gameStartDisp.style.display = "none";
+  // now i want to keep the start display
   gameCanvasDisp.style.display = "block";
   gameProg.style.display = "flex";
   gameOverDisp.style.display = "none";
-  console.log("current game func")
+  // console.log("current game func")
 }
 
 function endDisp() {
-  let gameStartDisp = document.getElementById("start");
+  // let gameStartDisp = document.getElementById("start");
   let gameCanvasDisp = document.getElementById("canvas");
   let gameProg = document.getElementById("progress");
   let gameOverDisp = document.getElementById("over");
-  gameStartDisp.style.display = "none";
+  // gameStartDisp.style.display = "none";
   gameCanvasDisp.style.display = "block";
   gameProg.style.display = "none";
   gameOverDisp.style.display = "block";
-  console.log("this is end disp func");
+  // console.log("this is end disp func");
   // sleep(3000);
 }
 
@@ -485,12 +488,12 @@ function endGame() {
   // gameCanvasDisp.style.display = "block";
   // gameProg.style.display = "none";
   gameOverDisp.style.display = "block";
-  console.log("this is end game before sleep");
+  // console.log("this is end game before sleep");
 
   sleep(500);
   scuba.x = 20;
   scuba.y = 40;
-  console.log("this is end game after sleep");
+  // console.log("this is end game after sleep");
   // setTimeout(() => {
   //   gameStart = false;
   //   gameOver = true;
@@ -502,7 +505,7 @@ function endGame() {
   // gameInProgress = false;
   }, 3000);
   // had at 100
-  console.log("this is end game after set timeout");
+  // console.log("this is end game after set timeout");
 }
 
 // function endGame() {

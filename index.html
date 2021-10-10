@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
-    <title>Save The Oceans</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <title>Save The Oceans!</title>
   </head>
 
   <body class="body">
@@ -21,13 +25,28 @@
     
     <!-- <canvas id="canvas" style="display:none"></canvas> -->
     <div>
-      <p id="you-lose">win</p>
+      <p id="you-lose">Press any key to start!</p>
     </div>
 
     <div id="start" style="display:block">
       <!-- <p>this means the game hasn't started</p> -->
-      <p class="save">Save The Oceans!</p>
-      <p>Press any key to start game!</p>
+      <div id="flex-top">
+
+        <p class="save">SAVE THE OCEANS</p>
+        <p>by helping clean up trash!
+          <i class="fas fa-arrow-up"></i>
+          <i class="fas fa-arrow-down"></i>
+          <i class="fas fa-arrow-right"></i>
+          <i class="fas fa-arrow-left"></i>
+        
+        </p> <!-- at the bottom add "press any key to start!"-->
+        <div class="links">
+          <a href="https://github.com/samantha-lilly"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/samantha-lilly-a7377a203/"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://angel.co/u/samantha-lilly"><i class="fab fa-angellist"></i></a>
+        </div>
+
+      </div>
     </div>
 
     <div class="game-in-progress" id="progress" style="display:none">
@@ -52,24 +71,20 @@
       </div>
       
       <div class="bags">
-        <div>
           <p>Plastic Bags Collected:</p><p id="bagscollected">0</p>
-        </div>
-        <div>
           <p>Plastic Bags Left:</p><p id="bagsleft">1000000000000</p>
-        </div>
-        <div>
           <p>Plastic Bags in Ocean:</p><p id="bagsocean">1,000,000,000,000+</p>
-        </div>
       </div>
 
     </div>
 
     
     <div id="over" class="game-over" style="display:none">
-      <p class="game-over-header">GAME OVER</p>
-      <p>Fish are friends not food!</p>
-      <p>Press any key to start new game!</p>
+      <p id="game-is-over" class="game-over-header">GAME OVER</p>
+      <div id="game-over-footer">
+        <p>Fish are friends, not food!</p>
+        <p>Press any key to start a new game!</p>
+      </div>
       <!-- <p>Straws Collected:</p><p id="strawscollected">0</p>
       <p>Cups Collected:</p><p id="cupscollected">0</p>
       <p>Bottles Collected:</p><p id="bottlescollected">0</p>
